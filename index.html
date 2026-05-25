@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CreatorHub — Recursos para Creadores de Contenido</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ─── NAVBAR ─────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon"><i class="fa-solid fa-film"></i></span>
+        <span class="brand-name">CreatorHub</span>
+      </a>
+
+      <div class="nav-search-wrap">
+        <div class="nav-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="globalSearch" placeholder="Buscar recursos, plugins, tutoriales…" autocomplete="off" />
+          <kbd>Ctrl K</kbd>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="explore.html" class="nav-link"><i class="fa-solid fa-compass"></i> Explorar</a>
+        <a href="upload.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Subir recurso</a>
+        <button class="btn-icon" id="themeToggle" title="Cambiar tema">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="profile.html" class="avatar-btn" title="Mi perfil">
+          <img src="assets/avatar-placeholder.svg" alt="avatar" id="navAvatar" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Plataforma para Creadores</div>
+      <h1 class="hero-title">
+        Comparte y descubre recursos<br />
+        para crear contenido increíble
+      </h1>
+      <p class="hero-sub">
+        Plugins, presets, videos explicativos, PDFs, packs de imágenes, expansiones de comandos y mucho más — todo en un solo lugar, organizado como lo necesitas.
+      </p>
+      <div class="hero-cta">
+        <a href="explore.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-compass"></i> Explorar recursos
+        </a>
+        <a href="upload.html" class="btn btn-outline btn-lg">
+          <i class="fa-solid fa-upload"></i> Subir recurso
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" id="statResources">0</span><span>Recursos</span></div>
+        <div class="stat"><span class="stat-num" id="statCreators">0</span><span>Creadores</span></div>
+        <div class="stat"><span class="stat-num" id="statDownloads">0</span><span>Descargas</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="floating-cards">
+        <div class="fcard fcard-1"><i class="fa-solid fa-video"></i><span>Plugin AE</span></div>
+        <div class="fcard fcard-2"><i class="fa-solid fa-image"></i><span>Pack PNG</span></div>
+        <div class="fcard fcard-3"><i class="fa-solid fa-file-pdf"></i><span>Guía PDF</span></div>
+        <div class="fcard fcard-4"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Preset LUT</span></div>
+        <div class="fcard fcard-5"><i class="fa-solid fa-terminal"></i><span>Comando</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CATEGORÍAS ────────────────────────────────────────── -->
+  <section class="section categories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explora por categoría</h2>
+        <a href="explore.html" class="link-all">Ver todo <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="categories-grid" id="categoriesGrid">
+        <!-- generadas por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RECURSOS DESTACADOS ───────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-fire-flame-curved" style="color:var(--accent-orange)"></i> Recursos destacados</h2>
+        <div class="filter-tabs" id="filterTabs">
+          <button class="tab active" data-filter="all">Todo</button>
+          <button class="tab" data-filter="plugin">Plugins</button>
+          <button class="tab" data-filter="preset">Presets</button>
+          <button class="tab" data-filter="video">Videos</button>
+          <button class="tab" data-filter="pdf">PDFs</button>
+          <button class="tab" data-filter="pack">Packs</button>
+          <button class="tab" data-filter="command">Comandos</button>
+        </div>
+      </div>
+      <div class="resources-grid" id="resourcesGrid">
+        <!-- generadas por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TRENDING ──────────────────────────────────────────── -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-chart-line" style="color:var(--accent-green)"></i> Tendencias esta semana</h2>
+        <a href="explore.html?sort=trending" class="link-all">Ver todo <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="trending-list" id="trendingList">
+        <!-- generadas por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA BANNER ───────────────────────────────────────── -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tienes recursos para compartir?</h2>
+        <p>Sube tus plugins, presets, tutoriales y ayuda a miles de creadores a mejorar su contenido.</p>
+        <a href="upload.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-cloud-upload-alt"></i> Empezar a subir
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon"><i class="fa-solid fa-film"></i></span>
+        <span class="brand-name">CreatorHub</span>
+        <p>La plataforma de recursos para creadores de contenido.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <a href="explore.html?cat=video-editing">Edición de Video</a>
+          <a href="explore.html?cat=photo-editing">Edición de Foto</a>
+          <a href="explore.html?cat=plugins">Plugins</a>
+          <a href="explore.html?cat=presets">Presets & LUTs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Recursos</h4>
+          <a href="explore.html?type=video">Videos Tutoriales</a>
+          <a href="explore.html?type=pdf">Guías PDF</a>
+          <a href="explore.html?type=pack">Packs de Imágenes</a>
+          <a href="explore.html?type=command">Comandos & Scripts</a>
+        </div>
+        <div class="footer-col">
+          <h4>Comunidad</h4>
+          <a href="#">Discord</a>
+          <a href="#">Twitter / X</a>
+          <a href="#">YouTube</a>
+          <a href="#">Newsletter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CreatorHub. Hecho para creadores, por creadores.</span>
+    </div>
+  </footer>
+
+  <!-- ─── MODAL PREVIEW ────────────────────────────────────── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="resourceModal">
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ─── SEARCH OVERLAY ───────────────────────────────────── -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-modal">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchModalInput" placeholder="Buscar recursos…" autofocus />
+        <kbd>Esc</kbd>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

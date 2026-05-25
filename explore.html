@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorar — CreatorHub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-icon"><i class="fa-solid fa-film"></i></span>
+        <span class="brand-name">CreatorHub</span>
+      </a>
+      <div class="nav-search-wrap">
+        <div class="nav-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="globalSearch" placeholder="Buscar recursos, plugins, tutoriales…" autocomplete="off" />
+          <kbd>Ctrl K</kbd>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="explore.html" class="nav-link active"><i class="fa-solid fa-compass"></i> Explorar</a>
+        <a href="upload.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Subir recurso</a>
+        <button class="btn-icon" id="themeToggle" title="Cambiar tema">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="profile.html" class="avatar-btn">
+          <img src="assets/avatar-placeholder.svg" alt="avatar" id="navAvatar" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── PÁGINA EXPLORAR ──────────────────────────────────── -->
+  <div class="explore-layout container">
+
+    <!-- SIDEBAR FILTROS -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <h3>Tipo de recurso</h3>
+        <div class="filter-group" id="typeFilters">
+          <label class="filter-check"><input type="checkbox" value="plugin" checked /> <i class="fa-solid fa-puzzle-piece"></i> Plugins</label>
+          <label class="filter-check"><input type="checkbox" value="preset" checked /> <i class="fa-solid fa-sliders"></i> Presets & LUTs</label>
+          <label class="filter-check"><input type="checkbox" value="video" checked /> <i class="fa-solid fa-play-circle"></i> Videos Tutoriales</label>
+          <label class="filter-check"><input type="checkbox" value="pdf" checked /> <i class="fa-solid fa-file-pdf"></i> Guías PDF</label>
+          <label class="filter-check"><input type="checkbox" value="pack" checked /> <i class="fa-solid fa-images"></i> Packs de Imágenes</label>
+          <label class="filter-check"><input type="checkbox" value="command" checked /> <i class="fa-solid fa-terminal"></i> Comandos & Scripts</label>
+          <label class="filter-check"><input type="checkbox" value="font" checked /> <i class="fa-solid fa-font"></i> Fuentes & Tipografías</label>
+          <label class="filter-check"><input type="checkbox" value="template" checked /> <i class="fa-solid fa-layer-group"></i> Plantillas</label>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Categoría</h3>
+        <div class="filter-group" id="catFilters">
+          <label class="filter-check"><input type="checkbox" value="video-editing" checked /> <i class="fa-solid fa-film"></i> Edición de Video</label>
+          <label class="filter-check"><input type="checkbox" value="photo-editing" checked /> <i class="fa-solid fa-camera"></i> Edición de Foto</label>
+          <label class="filter-check"><input type="checkbox" value="motion-graphics" checked /> <i class="fa-solid fa-wand-magic-sparkles"></i> Motion Graphics</label>
+          <label class="filter-check"><input type="checkbox" value="color-grading" checked /> <i class="fa-solid fa-palette"></i> Color Grading</label>
+          <label class="filter-check"><input type="checkbox" value="audio" checked /> <i class="fa-solid fa-music"></i> Audio & Sonido</label>
+          <label class="filter-check"><input type="checkbox" value="design" checked /> <i class="fa-solid fa-pen-ruler"></i> Diseño Gráfico</label>
+          <label class="filter-check"><input type="checkbox" value="3d" checked /> <i class="fa-solid fa-cube"></i> 3D & VFX</label>
+          <label class="filter-check"><input type="checkbox" value="social-media" checked /> <i class="fa-solid fa-share-nodes"></i> Redes Sociales</label>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Software compatible</h3>
+        <div class="filter-group" id="softFilters">
+          <label class="filter-check"><input type="checkbox" value="premiere" checked /> Premiere Pro</label>
+          <label class="filter-check"><input type="checkbox" value="after-effects" checked /> After Effects</label>
+          <label class="filter-check"><input type="checkbox" value="davinci" checked /> DaVinci Resolve</label>
+          <label class="filter-check"><input type="checkbox" value="photoshop" checked /> Photoshop</label>
+          <label class="filter-check"><input type="checkbox" value="lightroom" checked /> Lightroom</label>
+          <label class="filter-check"><input type="checkbox" value="figma" checked /> Figma</label>
+          <label class="filter-check"><input type="checkbox" value="capcut" checked /> CapCut</label>
+          <label class="filter-check"><input type="checkbox" value="final-cut" checked /> Final Cut Pro</label>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Precio</h3>
+        <div class="filter-group">
+          <label class="filter-check"><input type="radio" name="price" value="all" checked /> Todo</label>
+          <label class="filter-check"><input type="radio" name="price" value="free" /> Gratuito</label>
+          <label class="filter-check"><input type="radio" name="price" value="paid" /> De pago</label>
+        </div>
+      </div>
+
+      <button class="btn btn-outline btn-full" id="resetFilters">
+        <i class="fa-solid fa-rotate-left"></i> Restablecer filtros
+      </button>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="explore-main">
+      <div class="explore-header">
+        <div class="explore-meta">
+          <h1>Explorar recursos</h1>
+          <span id="resultsCount" class="results-count">Cargando…</span>
+        </div>
+        <div class="explore-controls">
+          <div class="search-inline">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="exploreSearch" placeholder="Filtrar resultados…" />
+          </div>
+          <select id="sortSelect" class="select-input">
+            <option value="popular">Más populares</option>
+            <option value="newest">Más recientes</option>
+            <option value="stars">Más estrellas</option>
+            <option value="downloads">Más descargas</option>
+          </select>
+          <div class="view-toggle">
+            <button class="btn-icon active" id="viewGrid" title="Vista grilla"><i class="fa-solid fa-grip"></i></button>
+            <button class="btn-icon" id="viewList" title="Vista lista"><i class="fa-solid fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tags activos -->
+      <div class="active-tags" id="activeTags"></div>
+
+      <!-- Grid de recursos -->
+      <div class="resources-grid" id="exploreGrid">
+        <!-- generadas por JS -->
+      </div>
+
+      <!-- Paginación -->
+      <div class="pagination" id="pagination">
+        <button class="btn btn-outline" id="prevPage" disabled><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+        <div class="page-numbers" id="pageNumbers"></div>
+        <button class="btn btn-outline" id="nextPage">Siguiente <i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL PREVIEW -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="resourceModal">
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-modal">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchModalInput" placeholder="Buscar recursos…" />
+        <kbd>Esc</kbd>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <span>© 2026 CreatorHub. Hecho para creadores, por creadores.</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/explore.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
